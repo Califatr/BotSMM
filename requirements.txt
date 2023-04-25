@@ -1,0 +1,4 @@
+psycopg2==2.9.3
+vkbottle==4.3.3
+vkbottle-types==5.131.146.3
+fpdf==1.7.2
