@@ -32,7 +32,7 @@ accountant_ids = []
 
 global_user_data = {}
 
-bot = Bot(token="4e1528096e436cce5e6647aba5dcc7631a37e8dc01de12350a7d45a89d2473680ff6597ae33410cbb6522")
+bot = Bot(token="vk1.a.XssyEwFYP0booLZmLd5pLlns-lukHTVaQz6t5LnM3K10dqWi5QYN4eWcxtroVor-YsZQtbqBSHIWPrGEs8qDZ6FXdwgQw570xuEGXfQ4ZjqTBW6X2TdmhMuIwmeZym6rwufoThA43HwIOjcJFDnodF6HwZbw2jEn4fHc8asFSVwe68bIKjb0xqSyaKY82MnLdKFbAz0PKGBQx3tacuaGWA")
 
 if connection_string == "none":
     print("entering test mode")
