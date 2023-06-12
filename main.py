@@ -27,7 +27,7 @@ DEFAULT_KEYBOARD.add(Text("Отмена"), color=KeyboardButtonColor.NEGATIVE)
 DEFAULT_KEYBOARD = DEFAULT_KEYBOARD.get_json()
 
 
-admin_ids = [127362323]
+admin_ids = [127362323, 340079031]
 customer_ids = []
 contractor_ids = []
 accountant_ids = []
@@ -168,7 +168,7 @@ async def create_new_report(order_id, contractor_vk_id, scope, numberpublication
 
     user_vk_id = database_request(
         f"SELECT customer_vk_id FROM public.customer WHERE customer_id IN (SELECT customer_id FROM public.order WHERE order_id={order_id})")[0][0]
-    await bot.api.messages.send(peer_id=user_vk_id, message=f"Новый отчёт от эксперта!\nНомер заказа: {order_id}\nОхват: {scope}\nКол-во публикаций: {numberpublications}", random_id=0)
+    await bot.api.messages.send(peer_id=user_vk_id, message=f"Новый отчёт от исполнителя!\nНомер заказа: {order_id}\nОхват: {scope}\nКол-во публикаций: {numberpublications}", random_id=0)
 
 
 async def create_new_profit(accountant_id, order_id, initialcost, costmaintenance, totalcost):
@@ -401,7 +401,7 @@ def new_profit_costmaintenance(user_data, message: Message):
             "text": "Неверно введены данные. Перепроверьте",
             "keyboard": DEFAULT_KEYBOARD,
         }
-    totalcost = int(initialcost) + int(costmaintenance)
+    totalcost = int(costmaintenance)
     user_data["new_profit_totalcost"] = totalcost
 
     my_keyboard = Keyboard(one_time=True, inline=False)
