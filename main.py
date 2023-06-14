@@ -103,10 +103,10 @@ async def get_order_data_detailed(order_id):
 async def add_new_content_to_order(order_id, text):
     database_request(
         f"INSERT INTO public.content(order_id, content_text) VALUES ('{order_id}', '{text}');", False)
-    # contractor_id = database_request(
-    # f"SELECT contractor_vk_id FROM public.contractor WHERE contractor_id IN (SELECT contractor_id FROM public.order WHERE order_id={order_id})")
-    # contractor_id = contractor_id[0][0]
-    # await bot.api.messages.send(peer_id=contractor_id, message=f"Новый контент!\nНомер заказа: {order_id}\nСообщение заказчика:\n{text}", random_id=0)
+    contractor_id = database_request(
+        f"SELECT contractor_vk_id FROM public.contractor WHERE contractor_id IN (SELECT contractor_id FROM public.order WHERE order_id={order_id})")
+    contractor_id = contractor_id[0][0]
+    await bot.api.messages.send(peer_id=contractor_id, message=f"Новый контент!\nНомер заказа: {order_id}\nСообщение заказчика:\n{text}", random_id=0)
 
 
 def get_user_data(user_id):
